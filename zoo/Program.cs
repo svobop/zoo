@@ -30,7 +30,8 @@ namespace zoo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var horse = new Animal("Roach");
+            Console.WriteLine(horse.Gender);
         }
     }
 }
