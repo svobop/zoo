@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace zoo
 {
@@ -64,13 +65,50 @@ namespace zoo
         }
     }
 
+    public class Monkey : Animal
+    {
+        public Monkey(string name, int age, string gender)
+        {
+            this.Name = name;
+            this.Age = age;
+            this.Gender = gender;
+            this.FedTimes = 0;
+        }
+
+        public Monkey(string name)
+        {
+            this.Name = name;
+            this.Age = 1;
+            this.Gender = "unknown";
+            this.FedTimes = 0;
+        }
+
+        public bool IsHungry()
+        {
+            // randomness doesn't work
+            var rand = new Random();
+            if (rand.Next(1) == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            var lion = new Lion("Roach");
-            Console.WriteLine(lion.ToString());
-            Console.WriteLine(lion.IsHungry());
+            var monkey = new Monkey("Roach");
+            Console.WriteLine(monkey.ToString());
+            Console.WriteLine(monkey.IsHungry());
+            Console.WriteLine(monkey.IsHungry());
+            Console.WriteLine(monkey.IsHungry());
+            Console.WriteLine(monkey.IsHungry());
         }
     }
 }
